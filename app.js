@@ -6,7 +6,7 @@ const sideBar = document.getElementById("sideBar");
 let firstLoad = true; 
 window.onload = function () {
     loadData(foodData);
-    firstLoad = false; 
+    firstLoad = false;  
 };
 
 const loadData = (data) => {
@@ -66,8 +66,10 @@ const sort = (data) => {
 
 const menuBar = document.getElementById("menuBar");
 
+
 const menuCollapse = () => {
-	if(window.innerWidth === '1000px'){
+    if(window.innerWidth === '1000px'){
+        console.log('Hello')
         if (sideBar.style.width === "300px") {
             sideBar.style.width = "0px";
         } else {
@@ -75,10 +77,18 @@ const menuCollapse = () => {
         }
     }
 };
-
+const menuCollapses = () => {
+        console.log('Hello')
+        if (sideBar.style.width === "300px") {
+            sideBar.style.width = "0px";
+        } else {
+            sideBar.style.width = "300px";
+        }
+};
 
 window.loadData = loadData;
 window.listFood = listFood;
 window.sortCalorie = sortCalorie;
 window.sort = sort;
 window.menuCollapse = menuCollapse;
+window.menuCollapses = menuCollapses;
