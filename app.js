@@ -68,27 +68,19 @@ const menuBar = document.getElementById("menuBar");
 
 
 const menuCollapse = () => {
-    if(window.innerWidth === '1000px'){
         console.log('Hello')
         if (sideBar.style.width === "300px") {
             sideBar.style.width = "0px";
         } else {
             sideBar.style.width = "300px";
         }
-    }
+    
 };
-const menuCollapses = () => {
-        console.log('Hello')
-        if (sideBar.style.width === "300px") {
-            sideBar.style.width = "0px";
-        } else {
-            sideBar.style.width = "300px";
-        }
-};
+
 
 window.loadData = loadData;
 window.listFood = listFood;
 window.sortCalorie = sortCalorie;
 window.sort = sort;
 window.menuCollapse = menuCollapse;
-window.menuCollapses = menuCollapses;
+
