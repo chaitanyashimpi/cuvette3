@@ -45,15 +45,15 @@ const foodData = JSON.parse(fs.readFileSync('./food.json', 'utf-8')); // Adjust 
       .map((food) => food.foodname);
   };
 
-  let calorieA100 = (data) => {
+  let caloriesAbove100 = (data) => {
     return data
-      .filter((food) => food.calories > 100)
+      .filter((food) => food.calorie > 100)
       .map((food) => food.foodname);
   };
 
-  let calorieL100 = (data) => {
+  let caloriesBelow100 = (data) => {
     return data
-      .filter((food) => food.calories < 100)
+      .filter((food) => food.calorie < 100)
       .map((food) => food.foodname);
   };
 
@@ -76,7 +76,7 @@ const foodData = JSON.parse(fs.readFileSync('./food.json', 'utf-8')); // Adjust 
   console.log("Nuts: ", categoryNuts(foodData));
   console.log("Grains: ", categoryGrains(foodData));
   console.log("Dairy: ", categoryDairy(foodData));
-  console.log("Calories Above 100: ", calorieA100(foodData));
-  console.log("Calories Below 100: ", calorieL100(foodData));
+  console.log("Calories Above 100: ", caloriesAbove100(foodData));
+  console.log("Calories Below 100: ", caloriesBelow100(foodData));
   console.log("Sorted by Protein (Highest to Lowest): ", highestProtien(foodData));
   console.log("Sorted by Carb (Lowest to Highest): ", lowestCab(foodData));
