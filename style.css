@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+	width: 12px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+	background: orange; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: blue; /* color of the scroll thumb */
+	border-radius: 20px; /* roundness of the scroll thumb */
+	border: 3px solid orange; /* creates padding around scroll thumb */
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	background-color: #191923;
+	color: #f1f1f1;
+	font-family: "Poppins", sans-serif;
+}
+
+nav {
+	height: 60px;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #252532;
+}
+#sideBar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 1000;
+	height: calc(100vh - 60px);
+	background-color: #252532;
+	width: 300px;
+	overflow: hidden;
+}
+#sideBar li {
+	height: 60px;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	padding: 0 10px;
+	cursor: pointer;
+	border-bottom: 0.5px solid #5e5d5d96;
+}
+#sideBar li:hover {
+	background-color: #35354788;
+}
+#menuBar {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	font-size: 30px;
+	display: none;
+    cursor: pointer;
+}
+main {
+	position: fixed;
+	top: 80px;
+	left: 350px;
+	width: calc(100% - 400px); /* Adjusted width */
+	max-height: calc(100% - 100px);
+	overflow: auto;
+	border: 1px solid #fff;
+}
+
+main table {
+	width: 100%;
+	/* background-color: gray; */
+	/* color: black; */
+	border-collapse: collapse;
+}
+thead {
+	border: 1px solid #fff;
+}
+main table tr {
+	height: 50px;
+}
+thead th {
+	text-align: center;
+}
+
+th,
+td {
+	padding: 10px;
+	min-width: 100px;
+}
+td {
+	color: white;
+}
+tr td:first-child,
+tr td:nth-child(3),
+tr td:nth-child(5),
+tr td:nth-child(6) {
+	text-align: center;
+}
+tr{
+    border-bottom: 1px solid #ffffff18;
+}
+th {
+	background-color: #f2f2f26b;
+}
+
+@media only screen and (width < 1000px) {
+	#sideBar {
+		width: 0px;
+	}
+	#menuBar {
+		display: inherit;
+	}
+	main {
+		left: 30px;
+		width: calc(100% - 70px); /* Adjusted width */
+	}
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Food Data Items</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<nav>
+			<i id="menuBar" onclick="menuCollapse()" class="fas fa-bars"></i>
+			<h1><span>Micro</span>Project 3 😍</h1>
+		</nav>
+		<div id="sideBar">
+			<ul>
+				<li onclick="listFood()">List all Food Items</li>
+				<li onclick="listFood('Vegetable')">List all Vegetables</li>
+				<li onclick="listFood('Fruit')">List all Fruits</li>
+				<li onclick="listFood('Protein')">List all Proteins</li>
+				<li onclick="listFood('Nuts')">List all Nuts</li>
+				<li onclick="listFood('Grain')">List all Grains</li>
+				<li onclick="listFood('Dairy')">List all dairy items</li>
+				<li onclick="sortCalorie('desc')">List all items with calorie above 100</li>
+				<li onclick="sortCalorie('asec')">List all items with calorie below 100</li>
+				<li onclick="sort('protein')">
+					List all items with protein desc order
+				</li>
+				<li onclick="sort('cab')">
+					List all items with cabs in asc order
+				</li>
+			</ul>
+		</div>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Food Name</th>
+                        <th>Calorie</th>
+                        <th>Category</th>
+                        <th>Protein</th>
+                        <th>Cab</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </main>
+		<script type="module" src="./app.js"></script>
+		<script
+			src="https://kit.fontawesome.com/6ea7a5ad8a.js"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
