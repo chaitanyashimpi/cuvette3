@@ -13,9 +13,9 @@ const fetchData = async () => {
 	try {
 		const response = await fetch("./food.json");
 		foodData = await response.json();
-		loadData(fetchData)
+		loadData(foodData);
 	} catch (error) {
-		console.error("First loading data: ", error);
+		console.error("Error loading data: ", error);
 	}
 };
 
@@ -32,10 +32,10 @@ const loadData = (data) => {
         <tr>
         <td>${sr++}</td>
         <td>${item.foodname}</td>
-            <td>${item.calorie}</td>
-            <td>${item.category}</td>
-            <td>${item.protiens}</td>
-            <td>${item.cab}</td>
+        <td>${item.calorie}</td>
+        <td>${item.category}</td>
+        <td>${item.protiens}</td>
+        <td>${item.cab}</td>
         </tr>
     `
 		)
@@ -51,36 +51,40 @@ const listFood = (data) => {
 		loadData(foodData.filter((item) => item.category === data));
 	}
 };
+
 const sortCalorie = (data) => {
+	const sortedData = foodData.slice();
 	if (!data) {
-		loadData(foodData);
+		loadData(sortedData);
 	} else if (data === "desc") {
-		loadData(foodData.filter((item) => item.calorie > 100));
+		loadData(sortedData.filter((item) => item.calorie > 100));
 	} else {
-		loadData(foodData.filter((item) => item.calorie < 100));
+		loadData(sortedData.filter((item) => item.calorie < 100));
 	}
 };
 
 const sort = (data) => {
+	const sortedData = foodData.slice();
 	if (!data) {
-		loadData(foodData);
+		loadData(sortedData);
 	} else if (data === "protein") {
-		loadData(foodData.sort((a, b) => b.protiens - a.protiens));
+		loadData(sortedData.sort((a, b) => b.protiens - a.protiens));
 	} else if (data === "cab") {
-		loadData(foodData.sort((a, b) => a.cab - b.cab));
+		loadData(sortedData.sort((a, b) => a.cab - b.cab));
 	}
 };
-
-// Menu
 
 const menuBar = document.getElementById("menuBar");
 
 const menuCollapse = () => {
-	console.log("Hello");
-	if (sideBar.style.width === "300px") {
-		sideBar.style.width = "0px";
-	} else {
-		sideBar.style.width = "300px";
+	// Check if window width is less than or equal to 1000px
+	if (window.innerWidth <= 1000) {
+		console.log("Hello");
+		if (sideBar.style.width === "300px") {
+			sideBar.style.width = "0px";
+		} else {
+			sideBar.style.width = "300px";
+		}
 	}
 };
 
