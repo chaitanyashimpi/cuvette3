@@ -1,19 +1,29 @@
-import foodData from "./food.json" assert { type: "json" };
-
 const tableData = document.querySelector("tbody");
 const sideBar = document.getElementById("sideBar");
 
-let firstLoad = true; 
+let firstLoad = true;
 window.onload = function () {
-    loadData(foodData);
-    firstLoad = false;  
+	fetchData();
+	firstLoad = false;
+};
+
+let foodData;
+
+const fetchData = async () => {
+	try {
+		const response = await fetch("./food.json");
+		foodData = await response.json();
+		loadData(fetchData)
+	} catch (error) {
+		console.error("First loading data: ", error);
+	}
 };
 
 const loadData = (data) => {
 	let sr = 1;
-    if (!firstLoad){
-        menuCollapse()
-    }
+	if (!firstLoad) {
+		menuCollapse();
+	}
 
 	const content = data
 		.map(
@@ -32,7 +42,6 @@ const loadData = (data) => {
 		.join("");
 
 	tableData.innerHTML = content;
-	return data;
 };
 
 const listFood = (data) => {
@@ -66,21 +75,17 @@ const sort = (data) => {
 
 const menuBar = document.getElementById("menuBar");
 
-
 const menuCollapse = () => {
-        console.log('Hello')
-        if (sideBar.style.width === "300px") {
-            sideBar.style.width = "0px";
-        } else {
-            sideBar.style.width = "300px";
-        }
-    
+	console.log("Hello");
+	if (sideBar.style.width === "300px") {
+		sideBar.style.width = "0px";
+	} else {
+		sideBar.style.width = "300px";
+	}
 };
-
 
 window.loadData = loadData;
 window.listFood = listFood;
 window.sortCalorie = sortCalorie;
 window.sort = sort;
 window.menuCollapse = menuCollapse;
-
